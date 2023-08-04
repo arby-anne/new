@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>RFID Classroom Attendance System</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome Cdn Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <ul>
+        <li><a href="#" class="logo">
+          <img src="mmsu-logo.png" alt="">
+          <span class="nav-item">DashBoard</span>
+        </a></li>
+        <li><a href="/home.html">
+          <i class="fas fa-home"></i>
+          <span class="nav-item">Home</span>
+        </a></li>
+        <li><a href="/manageroom.html">
+          <i class="fas fa-edit"></i>
+          <span class="nav-item">Manage room</span>
+        </a></li>
+        <li><a href="/report.html">
+          <i class="fas fa-file-alt"></i>
+          <span class="nav-item">Reports</span>
+        </a></li>
+        <li><a href="/help.html">
+          <i class="fas fa-question-circle"></i>
+          <span class="nav-item">Help</span>
+        </a></li>
+        <li><a href="" class="logout">
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="nav-item">Log out</span>
+        </a></li>
+      </ul>
+    </nav>
+
+    <section class="main">
+      <div class="main-top">
+        <h1>Colleges</h1>
+        <i class=""></i>
+          <div class="container2">
+            <button id="openFormButton">Add College</button>  
+          </div>
+      </div>
+        <div class="main-form">
+          <form id="myForm" class="hidden">
+              <div class="input-field">
+                <label for=""> </label>
+                <input type="text" v-model="" required placeholder="Room Number" class="hover-input">
+              </div> <br>
+              <div class="">
+                <select>
+                  <option hidden>Type</option>
+                  <option>Laboratory</option>
+                  <option>Lecture</option>
+                </select>
+              </div>
+       
+        
+              <div class="buttons">
+                  <button id="submit-btn" type="submit" class="submit">
+                  <span type="submit" class="submitBtn">Add</span></button> &nbsp
+                  <button id="submit-btn" type="submit" class="submit">
+                  <span type="submit" class="submitBtn">Cancel</span></button>
+              </div> <br>
+            </form>
+        </div>
+      <div class="main-skills">
+        <div class="card">
+          <i class=""></i>
+          <h3>COE</h3>
+          <p></p>
+          <button class="toggle-button" onclick="showTable('COE')">Manage Room</button>
+        </div>
+        <div class="card">
+            <i class=""></i>
+            <h3>CCIS</h3>
+            <p></p>
+            <button class="toggle-button" onclick="showTable('CCIS')">Manage Room</button>
+          </div>
+          <div class="card">
+            <i class=""></i>
+            <h3>CAS</h3>
+            <p></p>
+            <button class="toggle-button" onclick="showTable('CAS')">Manage Room</button>
+          </div>
+          <div class="card">
+            <i class=""></i>
+            <h3>CAFSD</h3>
+            <p></p>
+            <button class="toggle-button" onclick="showTable('CAFSD')">Manage Room</button>
+          </div>
+          <div class="card">
+            <i class=""></i>
+            <h3>CBEA</h3>
+            <p></p>
+            <button class="toggle-button" onclick="showTable('CBEA')">Manage Room</button>
+          </div>
+          <div class="card">
+            <i class=""></i>
+            <h3>CHS</h3>
+            <p></p>
+            <button class="toggle-button" onclick="showTable('CHS')">Manage Room</button>
+          </div>
+          <div class="card">
+            <i class=""></i>
+            <h3>CIT</h3>
+            <p></p>
+            <button class="toggle-button" onclick="showTable('CIT')">Manage Room</button>
+          </div>
+          <div class="card">
+            <i class=""></i>
+            <h3>CTE</h3>
+            <p></p>
+            <button class="toggle-button" onclick="showTable('CTE')">Manage Room</button>
+          </div>
+          <div class="card">
+            <i class=""></i>
+            <h3>COM</h3>
+            <p></p>
+            <button class="toggle-button" onclick="showTable('COM')">Manage Room</button>
+          </div>
+          <div class="card">
+            <i class=""></i>
+            <h3>COL</h3>
+            <p></p>
+            <button class="toggle-button" onclick="showTable('COL')">Manage Room</button>
+          </div>
+          <div class="card">
+            <i class=""></i>
+            <h3>CVM</h3>
+            <p></p>
+            <button class="toggle-button" onclick="showTable('CVM')">Manage Room</button>
+          </div>
+          <div class="card">
+            <i class=""></i>
+            <h3>CASAT</h3>
+            <p></p>
+            <button class="toggle-button" onclick="showTable('CASAT')">Manage Room</button>
+          </div>
+      </div> <br>
+
+      <div id="selected-table-info" style="display: none;">
+        <h3>College: <span id="selected-table-name"></span></h3>
+      </div> <br>
+
+      <div>
+        <table id="COE" style="display: none;">
+          <thead>
+            <th>Type</th>
+            <th>Room Number</th>
+            <th>Date & Time</th>
+            <th>Actions</th>
+            <!-- <th></th> -->
+         
+        
+        </thead>
+        <tbody align="center">
+            <tr v-for="(name, index) in getNames" :key="index">
+                <td>Laboratory</td>
+                <td>1</td>
+                <td></td>
+                <td><button class="open-modal">Edit</button>
+                <button class="open-modal">Update</button></td>
+                <!-- <td></td> -->
+        <tbody align="center">
+            <tr v-for="(name, index) in getNames" :key="index">
+                <td>Lecture</td>
+                <td>1</td>
+                <td></td>
+                <td><button class="open-modal">Edit</button>
+                <button class="open-modal" id="update">Update</button></td>
+                <!-- <td></td> -->
+        </table>
+        
+    
+        <div class="blur-bg hidden-blur">
+            <div class="modal-content hidden-modal">
+                <div class="modal-header">
+                    <h3>ROOM 1</h3>
+                    <button class="close-modal">&times;</button>
+                </div>
+        
+                <div class="modal-body">
+                    <p>Faculty:</p>
+                    <p>Students:</p>
+                    <p>   1.</p>
+                    <p>   2.</p>
+                    <p>   3.</p>
+                    <p>   4.</p>
+                    <p>   5.</p>
+                </div>
+            </div> 
+        </div>
+        
+
+  
+        <table id="CCIS" style="display: none;">
+          <thead>
+            <th>Type</th>
+            <th>Room Number</th>
+            <th>Date & Time</th>
+            <th>Actions</th>
+            <!-- <th></th> -->
+         
+        
+        </thead>
+        <tbody align="center">
+            <tr v-for="(name, index) in getNames" :key="index">
+                <td>Laboratory</td>
+                <td>1</td>
+                <td></td>
+                <td><button class="open-modal">Edit</button>
+                <button class="open-modal" id="update">Update</button></td>
+                <!-- <td></td> -->
+        </table>
+      
+        <table id="CAS" style="display: none;">
+          <thead>
+            <th>Type</th>
+            <th>Room Number</th>
+            <th>Date & Time</th>
+            <th>Actions</th>
+            <!-- <th></th> -->
+         
+        
+        </thead>
+        <tbody align="center">
+            <tr v-for="(name, index) in getNames" :key="index">
+                <td>Laboratory</td>
+                <td>1</td>
+                <td></td>
+                <td><button class="open-modal">Edit</button>
+                <button class="open-modal" id="update">Update</button></td>
+                <!-- <td></td> -->
+        </table>
+
+      <table id="CAFSD" style="display: none;">
+      <thead>
+        <th>Type</th>
+        <th>Room Number</th>
+        <th>Date & Time</th>
+        <th>Actions</th>
+        <!-- <th></th> -->
+     
+    
+    </thead>
+    <tbody align="center">
+        <tr v-for="(name, index) in getNames" :key="index">
+            <td>Laboratory</td>
+            <td>1</td>
+            <td></td>
+            <td><button class="open-modal">Edit</button>
+            <button class="open-modal" id="update">Update</button></td>
+            <!-- <td></td> -->
+    </table>
+
+    <table id="CBEA" style="display: none;">
+      <thead>
+        <th>Type</th>
+        <th>Room Number</th>
+        <th>Date & Time</th>
+        <th>Actions</th>
+        <!-- <th></th> -->
+     
+    
+    </thead>
+    <tbody align="center">
+        <tr v-for="(name, index) in getNames" :key="index">
+            <td>Laboratory</td>
+            <td>1</td>
+            <td></td>
+            <td><button class="open-modal">Edit</button>
+            <button class="open-modal" id="update">Update</button></td>
+            <!-- <td></td> -->
+    </table>
+
+    <table id="CHS" style="display: none;">
+      <thead>
+        <th>Type</th>
+        <th>Room Number</th>
+        <th>Date & Time</th>
+        <th>Actions</th>
+        <!-- <th></th> -->
+     
+    
+    </thead>
+    <tbody align="center">
+        <tr v-for="(name, index) in getNames" :key="index">
+            <td>Laboratory</td>
+            <td>1</td>
+            <td></td>
+            <td><button class="open-modal">Edit</button>
+            <button class="open-modal" id="update">Update</button></td>
+            <!-- <td></td> -->
+    </table>
+
+    <table id="CIT" style="display: none;">
+      <thead>
+        <th>Type</th>
+        <th>Room Number</th>
+        <th>Date & Time</th>
+        <th>Actions</th>
+        <!-- <th></th> -->
+     
+    
+    </thead>
+    <tbody align="center">
+        <tr v-for="(name, index) in getNames" :key="index">
+            <td>Laboratory</td>
+            <td>1</td>
+            <td></td>
+            <td><button class="open-modal">Edit</button>
+            <button class="open-modal" id="update">Update</button></td>
+            <!-- <td></td> -->
+    </table>
+
+    <table id="CTE" style="display: none;">
+      <thead>
+        <th>Type</th>
+        <th>Room Number</th>
+        <th>Date & Time</th>
+        <th>Actions</th>
+        <!-- <th></th> -->
+     
+    
+    </thead>
+    <tbody align="center">
+        <tr v-for="(name, index) in getNames" :key="index">
+            <td>Laboratory</td>
+            <td>1</td>
+            <td></td>
+            <td><button class="open-modal">Edit</button>
+            <button class="open-modal" id="update">Update</button></td>
+            <!-- <td></td> -->
+    </table>
+
+    <table id="COM" style="display: none;">
+      <thead>
+        <th>Type</th>
+        <th>Room Number</th>
+        <th>Date & Time</th>
+        <th>Actions</th>
+        <!-- <th></th> -->
+     
+    
+    </thead>
+    <tbody align="center">
+        <tr v-for="(name, index) in getNames" :key="index">
+            <td>Laboratory</td>
+            <td>1</td>
+            <td></td>
+            <td><button class="open-modal">Edit</button>
+            <button class="open-modal" id="update">Update</button></td>
+            <!-- <td></td> -->
+    </table>
+
+    <table id="COL" style="display: none;">
+      <thead>
+        <th>Type</th>
+        <th>Room Number</th>
+        <th>Date & Time</th>
+        <th>Actions</th>
+        <!-- <th></th> -->
+     
+    
+    </thead>
+    <tbody align="center">
+        <tr v-for="(name, index) in getNames" :key="index">
+            <td>Laboratory</td>
+            <td>1</td>
+            <td></td>
+            <td><button class="open-modal">Edit</button>
+            <button class="open-modal" id="update">Update</button></td>
+            <!-- <td></td> -->
+    </table>
+
+    <table id="CVM" style="display: none;">
+      <thead>
+        <th>Type</th>
+        <th>Room Number</th>
+        <th>Date & Time</th>
+        <th>Actions</th>
+        <!-- <th></th> -->
+     
+    
+    </thead>
+    <tbody align="center">
+        <tr v-for="(name, index) in getNames" :key="index">
+            <td>Laboratory</td>
+            <td>1</td>
+            <td></td>
+            <td><button class="open-modal">Edit</button>
+            <button class="open-modal" id="update">Update</button></td>
+            <!-- <td></td> -->
+    </table>
+
+    <table id="CASAT" style="display: none;">
+      <thead>
+        <th>Type</th>
+        <th>Room Number</th>
+        <th>Date & Time</th>
+        <th>Actions</th>
+        <!-- <th></th> -->
+     
+    
+    </thead>
+    <tbody align="center">
+        <tr v-for="(name, index) in getNames" :key="index">
+            <td>Laboratory</td>
+            <td>1</td>
+            <td></td>
+            <td><button class="open-modal">Edit</button>
+            <button class="open-modal" id="update">Update</button></td>
+            <!-- <td></td> -->
+    </table>
+
+      </div>
+    </section>
+  </div>
+</body>
+</html>
+<script type="text/javascript" charset="utf-8">
+  function hide_all(){
+    document.getElementsByClassName("hide_this").style.display = "none";
+  }
+  function COE() {
+
+  document.getElementById("COE").classList.toggle("hidden");
+
+}
+  function CCIS() {
+
+  document.getElementById("CCIS").classList.toggle("hidden");
+
+}
+function CAS() {
+  hide_all();
+
+  document.getElementById("CAS").classList.toggle("hidden");
+
+}
+function CAFSD() {
+
+  document.getElementById("CAFSD").classList.toggle("hidden");
+
+}
+function CBEA() {
+
+  document.getElementById("CBEA").classList.toggle("hidden");
+
+}
+function CHS() {
+
+  document.getElementById("CHS").classList.toggle("hidden");
+
+}
+function CIT() {
+
+  document.getElementById("CIT").classList.toggle("hidden");
+
+}
+function CTE() {
+
+  document.getElementById("CTE").classList.toggle("hidden");
+
+}
+function COM() {
+
+  document.getElementById("COM").classList.toggle("hidden");
+
+}
+function COL() {
+
+  document.getElementById("COL").classList.toggle("hidden");
+
+}
+function CVM() {
+
+  document.getElementById("CVM").classList.toggle("hidden");
+
+}
+function CASAT() {
+
+  document.getElementById("CASAT").classList.toggle("hidden");
+
+}
+let modalContent = document.querySelector(".modal-content");
+let openModal = document.querySelector(".open-modal");
+let closeModal = document.querySelector(".close-modal");
+let blurBg = document.querySelector(".blur-bg");
+
+openModal.addEventListener("click", function () {
+    modalContent.classList.remove("hidden-modal");
+    blurBg.classList.remove("hidden-blur");
+});
+
+let closeModalFunction = function () {
+    modalContent.classList.add("hidden-modal")
+    blurBg.classList.add("hidden-blur")
+}
+blurBg.addEventListener("click", closeModalFunction);
+closeModal.addEventListener("click", closeModalFunction);
+
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape"
+     && !modalContent.classList.contains("hidden")
+   ) {
+        closeModalFunction();
+    }
+});
+
+var activeTableId = null;
+
+    function showTable(tableId) {
+      var tableToShow = document.getElementById(tableId);
+      var activeTable = document.getElementById(activeTableId);
+      var selectedTableInfo = document.getElementById("selected-table-info");
+      var selectedTableName = document.getElementById("selected-table-name");
+
+      if (activeTable) {
+        activeTable.style.display = "none";
+      }
+
+      if (activeTableId === tableId) {
+        activeTableId = null;
+        selectedTableInfo.style.display = "none";
+      } else {
+        tableToShow.style.display = "table";
+        activeTableId = tableId;
+        selectedTableName.textContent = tableId;
+        selectedTableInfo.style.display = "block";
+      }
+    }
+    document.getElementById("openFormButton").addEventListener("click", function() {
+    var form = document.getElementById("myForm");
+    if (form.style.display === "none") {
+      form.style.display = "block";
+    } else {
+      form.style.display = "none";
+    }
+  });
+</script>
+<style>
+/*  import google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700");
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body{
+  /* background: #dfe9f5; */
+  background-image: url('https://scontent.fmnl10-1.fna.fbcdn.net/v/t39.30808-6/306151778_459121436250152_6328234174557353046_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=e3f864&_nc_eui2=AeFR6F7Z69qNK3FPjT5VAcs4jNzJ2DI0adaM3MnYMjRp1j6ndDmg41KcwA84vTPDsxxYjDbjU4p8y1_vD6J89CJi&_nc_ohc=-mHZGdPSzHoAX8CkiKu&_nc_ht=scontent.fmnl10-1.fna&_nc_e2o=c&oh=00_AfDksy9xD5YLTSwnE-oOAclJvZCtdPMUeFdCdZsn5jIk2g&oe=64CF7BC2');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        backdrop-filter: contrast(40%);
+}
+.container{
+  display: flex;
+}
+nav{
+  position: relative;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  left: 0;
+  background: #fff;
+  width: 280px;
+  overflow: hidden;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+.logo{
+  text-align: center;
+  display: flex;
+  margin: 10px 0 0 10px;
+}
+.logo img{
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+.logo span{
+  font-weight: bold;
+  padding-left: 15px;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+a{
+  position: relative;
+  color: rgb(85, 83, 83);
+  font-size: 14px;
+  display: table;
+  width: 280px;
+  padding: 10px;
+}
+nav .fas{
+  position: relative;
+  width: 70px;
+  height: 40px;
+  top: 14px;
+  font-size: 20px;
+  text-align: center;
+}
+.nav-item{
+  position: relative;
+  top: 12px;
+  margin-left: 10px;
+}
+a:hover{
+  background: #eee;
+}
+.logout{
+  position: absolute;
+  bottom: 0;
+}
+
+/* Main Section */
+.main{
+  position: relative;
+  padding: 20px;
+  width: 100%;
+}
+.main-top{
+  display: flex;
+  width: 100%;
+}
+.main-top i{
+  position: absolute;
+  right: 0;
+  margin: 10px 30px;
+  color: rgb(110, 109, 109);
+  cursor: pointer;
+}
+.main-skills{
+  display: flex;
+  margin-top: 20px;
+}
+.main-skills .card{
+  width: 20%;
+  margin: 10px;
+  background: #fff;
+  text-align: center;
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+.main-skills .card h3{
+  margin: 10px;
+  text-transform: capitalize;
+}
+.main-skills .card p{
+  font-size: 12px;
+}
+.main-skills .card button{
+  background: rgb(79, 169, 71);
+  color: #fff;
+  padding: 7px 15px;
+  border-radius: 10px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+.main-skills .card button:hover{
+  background: rgba(239, 184, 65, 0.842);
+}
+.main-skills .card i{
+  font-size: 22px;
+  padding: 10px;
+}
+
+/* Courses */
+.main-course{
+  margin-top:20px ;
+  text-transform: capitalize;
+}
+.course-box{
+  width: 100%;
+  height: 300px;
+  padding: 10px 10px 30px 10px;
+  margin-top: 10px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+.course-box ul{
+  list-style: none;
+  display: flex;
+}
+.course-box ul li{
+  margin: 10px;
+  color: gray;
+  cursor: pointer;
+}
+.course-box ul .active{
+  color: #000;
+  border-bottom: 1px solid #000;
+}
+.course-box .course{
+  display: flex;
+}
+.box{
+  width: 33%;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  background: rgb(235, 233, 233);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+.box p{
+  font-size: 12px;
+  margin-top: 5px;
+}
+.box button{
+  background: #000;
+  color: #fff;
+  padding: 7px 10px;
+  border-radius: 10px;
+  margin-top: 3rem;
+  cursor: pointer;
+}
+.box button:hover{
+  background: rgba(0, 0, 0, 0.842);
+}
+.box i{
+  font-size: 7rem;
+  float: right;
+  margin: -20px 20px 20px 0;
+}
+.html{
+  color: rgb(25, 94, 54);
+}
+.css{
+  color: rgb(104, 179, 35);
+}
+.js{
+  color: rgb(28, 98, 179);
+}
+
+table, td, th {
+            border: 1px solid;
+      		width: 20%;
+      		font-family: 'Poppins', sans-serif;
+      		
+            }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #eef4ed;
+            }
+
+.hidden {
+
+display: none;
+
+
+}
+
+.container .buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            }
+          button {
+            padding: 8px 15px;
+            font-size: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+          button.submit {
+            background-color: #008000;
+            color: white;
+            border-radius: 15px;
+          }
+
+          button.submit:hover {
+            background-color: #eda338;
+          }
+
+          * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1;
+}
+
+
+.open-modal {
+    background: #008000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+    outline: none;
+}
+
+.open-modal:active {
+    transform: translateY(-17px);
+}
+
+.modal-content {
+    background: #ece4e4;
+    width: 500px;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 99;
+    position: relative;
+    margin: auto;
+    justify-content: center;
+    margin-top: 20%;
+    align-items: center;
+    text-align: center;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    color: #000;
+    font-size: 30px;
+    
+}
+
+.modal-body p { 
+   font-size: 22px;
+    line-height: 1.5;
+    text-align: left;
+} 
+
+.hidden-modal { 
+   display: none; 
+}
+
+.close-modal {
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    width: 20px;
+    font-size: 40px;
+}
+
+.close-modal:hover {
+    color: #fa5252;
+}
+
+.blur-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+.hidden-blur {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Responsive Button Styles */
+#openFormButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #a6a8b1;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#openFormButton:hover {
+    background-color: #a6a8b1;
+}
+
+@media screen and (max-width: 600px) {
+    #openFormButton {
+        font-size: 14px;
+    }
+}
+.myForm {
+   display: none;
+    margin-top: 10px;
+}
+.main-form {
+  display: flex;
+  width: 100%;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  margin-top: 20px;
+}
+  </style>

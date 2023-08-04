@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>RFID Classroom Attendance System</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome Cdn Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="#" class="logo">
+                <img src="mmsu-logo.png" alt="">
+                <span class="nav-item">DashBoard</span>
+                </a></li>
+
+                <li><a href="/home.html">
+                <i class="fas fa-home"></i>
+                <span class="nav-item">Home</span>
+                </a></li>
+
+                <li><a href="/manageroom.html">
+                <i class="fas fa-edit"></i>
+                <span class="nav-item">Manage room</span>
+                </a></li>
+
+                <li><a href="/report.html">
+                <i class="fas fa-file-alt"></i>
+                <span class="nav-item">Reports</span>
+                </a></li>
+
+                <li><a href="/help.html">
+                <i class="fas fa-question-circle"></i>
+                <span class="nav-item">Help</span>
+                </a></li>
+
+                <li><a href="" class="logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span class="nav-item">Log out</span>
+                </a></li>
+            </ul>
+        </nav>
+        <div class="mess">
+            <h1>Need Help?</h1>
+            <p>please contact</p>
+        </div>
+    </div>
+</body>
+<style>
+/*  import google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700");
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.mess{
+    margin:auto;
+    vertical-align: middle;
+}
+.mess p{
+    color: chartreuse;
+    font-size: 25px;
+}
+body{
+    background-image: url('https://scontent.fmnl10-1.fna.fbcdn.net/v/t39.30808-6/306151778_459121436250152_6328234174557353046_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=e3f864&_nc_eui2=AeFR6F7Z69qNK3FPjT5VAcs4jNzJ2DI0adaM3MnYMjRp1j6ndDmg41KcwA84vTPDsxxYjDbjU4p8y1_vD6J89CJi&_nc_ohc=-mHZGdPSzHoAX8CkiKu&_nc_ht=scontent.fmnl10-1.fna&_nc_e2o=c&oh=00_AfDksy9xD5YLTSwnE-oOAclJvZCtdPMUeFdCdZsn5jIk2g&oe=64CF7BC2');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        backdrop-filter: contrast(40%);
+}
+.container{
+  display: flex;
+}
+nav{
+  position: relative;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  left: 0;
+  background: #fff;
+  width: 280px;
+  overflow: hidden;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+.logo{
+  text-align: center;
+  display: flex;
+  margin: 10px 0 0 10px;
+}
+.logo img{
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+.logo span{
+  font-weight: bold;
+  padding-left: 15px;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+a{
+  position: relative;
+  color: rgb(85, 83, 83);
+  font-size: 14px;
+  display: table;
+  width: 280px;
+  padding: 10px;
+}
+nav .fas{
+  position: relative;
+  width: 70px;
+  height: 40px;
+  top: 14px;
+  font-size: 20px;
+  text-align: center;
+}
+.nav-item{
+  position: relative;
+  top: 12px;
+  margin-left: 10px;
+}
+a:hover{
+  background: #eee;
+}
+.logout{
+  position: absolute;
+  bottom: 0;
+}
+  </style>
